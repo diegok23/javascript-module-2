@@ -7,29 +7,28 @@ Each destination has a name, a distance from Glasgow, and a list of transportati
 3) Print in the console all the destination names more than 300 kms far away and reachable by train.
 */
 
-
 let destination1 = {
-    destinationName: "Edinburgh",
-    distanceKms: 80,
-    transportations: ["car", "bus", "train"]
+  destinationName: 'Edinburgh',
+  distanceKms: 80,
+  transportations: ['car', 'bus', 'train']
 };
 
 let destination2 = {
-    destinationName: "London",
-    distanceKms: 650,
-    transportations: ["car", "bus", "train"]
+  destinationName: 'London',
+  distanceKms: 650,
+  transportations: ['car', 'bus', 'train']
 };
 
 let destination3 = {
-    destinationName: "Paris",
-    distanceKms: 900,
-    transportations: ["train", "plane"]
+  destinationName: 'Paris',
+  distanceKms: 900,
+  transportations: ['train', 'plane']
 };
 
 let destination4 = {
-    destinationName: "Dublin",
-    distanceKms: 350,
-    transportations: ["plane", "ferry"]
+  destinationName: 'Dublin',
+  distanceKms: 350,
+  transportations: ['plane', 'ferry']
 };
 
 let travelDestinations = [destination1, destination2, destination3, destination4];
@@ -39,13 +38,34 @@ DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
 
+let destinationNamesWithin500Kms = travelDestinations.filter((distance) => {
+    return distance.distanceKms < 500;
+  })
+  .map((city) => city.destinationName);
 
-let destinationNamesWithin500Kms = // Complete here
+console.log(destinationNamesWithin500Kms);
 
-let destinationNameReachableByFerry = // Complete here
+//
 
-let destinationNamesMoreThan300KmsAwayByTrain = // Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
+let destinationNameReachableByFerry = travelDestinations.filter((ferry) => {
+    if (ferry.transportations.includes('ferry')) {
+      return ferry;
+    }
+  })
+  .map((city) => city.destinationName);
 
+console.log(destinationNameReachableByFerry);
+
+//
+
+let destinationNamesMoreThan300KmsAwayByTrain = travelDestinations.filter((awayByTrain) => {
+    if (awayByTrain.distanceKms > 300 && awayByTrain.transportations.includes('train')) {
+      return awayByTrain;
+    }
+  })
+  .map((city) => city.destinationName);
+
+console.log(destinationNamesMoreThan300KmsAwayByTrain);
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE

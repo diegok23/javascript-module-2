@@ -56,9 +56,13 @@ checkForm.addEventListener('submit', (e) => {
     }
     if (!isValidUserName) {
       userName.style.backgroundColor = 'red';
+    } else {
+      userName.style.backgroundColor = 'white';
     }
     if (!isValidDescription) {
       description.style.backgroundColor = 'red';
+    } else {
+      description.style.backgroundColor = 'white';
     }
   }
 });
