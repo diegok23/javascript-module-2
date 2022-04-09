@@ -26,11 +26,9 @@ WRITE YOUR CODE BELOW
 
 let persons = [person1, person2, person3];
 
-let personNames = persons.map(function (person) {
-  return person.name;
-});
+let personNames = persons.map(person => person.name);
 
-let personsYoungerThan28YearsOld = persons.filter((person) => person.age < 28);
+let personsYoungerThan28YearsOld = persons.filter(person => person.age < 28);
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE

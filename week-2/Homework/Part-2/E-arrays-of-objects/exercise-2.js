@@ -38,34 +38,28 @@ DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
 
-let destinationNamesWithin500Kms = travelDestinations.filter((distance) => {
-    return distance.distanceKms < 500;
-  })
-  .map((city) => city.destinationName);
+let destinationNamesWithin500Kms = travelDestinations
+  .filter(distance => distance.distanceKms < 500)
+  .map(city => city.destinationName);
 
 console.log(destinationNamesWithin500Kms);
 
 //
 
-let destinationNameReachableByFerry = travelDestinations.filter((ferry) => {
-    if (ferry.transportations.includes('ferry')) {
-      return ferry;
-    }
-  })
-  .map((city) => city.destinationName);
+let destinationNameReachableByFerry = travelDestinations
+  .filter(ferry => ferry.transportations.includes('ferry'))
+  .map(city => city.destinationName);
 
 console.log(destinationNameReachableByFerry);
 
 //
 
-let destinationNamesMoreThan300KmsAwayByTrain = travelDestinations.filter((awayByTrain) => {
-    if (awayByTrain.distanceKms > 300 && awayByTrain.transportations.includes('train')) {
-      return awayByTrain;
-    }
-  })
-  .map((city) => city.destinationName);
+let destinationNamesMoreThan300KmsAwayByTrain = travelDestinations
+  .filter(awayByTrain => awayByTrain.distanceKms > 300 && awayByTrain.transportations.includes('train'))
+  .map(city => city.destinationName);
 
-console.log(destinationNamesMoreThan300KmsAwayByTrain);
+destinationNamesMoreThan300KmsAwayByTrain.forEach(city => console.log(city));
+
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE

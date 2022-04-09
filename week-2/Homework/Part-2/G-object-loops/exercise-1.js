@@ -15,6 +15,7 @@ for (const studentName in studentGrades){
   
 }
 
+
 // Prints
   // TOM - 20
   // ABDUL - 19
