@@ -54,29 +54,26 @@ let restaurant1 = {
   WRITE YOUR CODE BELOW
   */
   
-  let restaurantFinderApplication = {
-    applicationName: "Restaurant Finder",
-    applicationVersion: "1.0",
-    restaurants: restaurants,
-    findAvailableRestaurants: function (numberOfPeople) {
-      const availabeRest = this.restaurants.filter(restaurant => numberOfPeople <= restaurant.totalSeats - restaurant.numberOfCustomers)
-      .map(available => available.name)
-      return(availabeRest);
-      // Complete here
-    },
-    findRestaurantServingDish: function (dishName) {
-      const availableDish = this.restaurants.filter(restaurant => restaurant.menu.includes(dishName))
-      .map(dish => dish.name)
-      return(availableDish);
-      // Complete here
-    },
-    countNumberOfRestaurantsInArea: function (area) {
-      const areaLocation = this.restaurants.filter(restaurant => restaurant.address.area.includes(area))
-      .map(area => area.address.area)
-      return areaLocation.length
-      // Complete here
-    },
-  };
+let restaurantFinderApplication = {
+  applicationName: "Restaurant Finder",
+  applicationVersion: "1.0",
+  restaurants: restaurants,
+  findAvailableRestaurants: function (numberOfPeople) {
+    const availabeRest = this.restaurants.filter(restaurant => numberOfPeople <= restaurant.totalSeats - restaurant.numberOfCustomers)
+    .map(available => available.name)
+    return(availabeRest);
+  },
+  findRestaurantServingDish: function (dishName) {
+    const availableDish = this.restaurants.filter(restaurant => restaurant.menu.includes(dishName))
+    .map(dish => dish.name)
+    return(availableDish);
+  },
+  countNumberOfRestaurantsInArea: function (area) {
+    const areaLocation = this.restaurants.filter(restaurant => restaurant.address.area.includes(area))
+    .map(area => area.address.area)
+    return areaLocation.length
+  },
+};
   
   /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
