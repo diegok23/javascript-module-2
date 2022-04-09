@@ -16,9 +16,20 @@ let coffeeMachine = {
       flatWhite: 3.0,
     },
     insertedAmount: 0,
-    insertMoney: function (amount) {},
-    getCoffee: function (coffee) {},
-  };
+    insertMoney: function (amount) {
+      this.insertedAmount = this.insertedAmount+amount
+    },
+    getCoffee: function (coffee) {
+      const coffeePrice = this.prices[coffee]
+      if (this.insertedAmount >= coffeePrice){
+        this.insertedAmount = 0
+        return `Please take your ${coffee}`
+      } this.insertedAmount = 0
+      return `Sorry you don't have enough money for a ${coffee}`
+    } 
+  }
+
+
   
   /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
