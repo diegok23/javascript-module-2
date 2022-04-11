@@ -41,25 +41,51 @@ var product2 = {
   price: 9.99,
   stock: 2
 };
+var product3 = {
+  id: 3,
+  name: "Monitor ASUS 239",
+  price: 149.99,
+  stock: 15
+};
+var product4 = {
+  id: 4,
+  name: "Chair Markus",
+  price: 169.99,
+  stock: 321
+};
 
 products.push(product1);
 products.push(product2);
+products.push(product3,product4);
 
 var shoppingCart = {
   totalPrice: 0,
   selectedProducts: []
-};
+  };
 
 function addToShoppingCart(id){
-
+  const product = products.find(product => product.id === id);
+  console.log(product);
+  if (product.stock > 0){
+    shoppingCart.totalPrice+=product.price
+    shoppingCart.selectedProducts.push(product)
+  }
 }
 
 function removeFromShoppingCart(id){
-
+  const product = products.find(product => product.id === id);
+  shoppingCart.totalPrice-=product.price
+  const removeIndex = shoppingCart.selectedProducts.indexOf(product);
+  if (removeIndex !== -1) {
+    shoppingCart.selectedProducts.splice(removeIndex, 1);
+  }
+  product.stock++
 }
 
 function shop(){
-
+  shoppingCart.selectedProducts = []
+  shoppingCart.totalPrice = 0
+  products.forEach(product => product.stock--)
 }
 
 //results
@@ -88,3 +114,4 @@ console.log("Step 5");
 console.log("Total Price = " + shoppingCart.totalPrice);
 console.log("Number of Elements = " + shoppingCart.selectedProducts.length);
 console.log("Name of Elements = " + shoppingCart.selectedProducts.map(p=>p.name));
+console.log("Remaining stocks = " + products.map(p=>p.stock));
