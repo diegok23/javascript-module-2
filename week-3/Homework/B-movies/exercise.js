@@ -33,35 +33,84 @@ TIP: Use the functions you created on tasks 1-3
 */
 var movies = [
   {
-    title: "Color Out of Space",
-    director: "Richard Stanley",
-    type: "sci-fi",
-    haveWatched: true,
+    title: 'Color Out of Space',
+    director: 'Richard Stanley',
+    type: 'sci-fi',
+    haveWatched: true
   },
   {
-    title: "A Twelve-Year Night",
-    director: "Álvaro Brechner",
-    type: "horror",
-    haveWatched: false,
+    title: 'A Twelve-Year Night',
+    director: 'Álvaro Brechner',
+    type: 'horror',
+    haveWatched: false
   },
   {
-    title: "The Whistlers",
-    director: "Corneliu Porumboiu",
-    type: "comedy",
-    haveWatched: true,
+    title: 'The Whistlers',
+    director: 'Corneliu Porumboiu',
+    type: 'comedy',
+    haveWatched: true
   },
   {
-    title: "The Invisible Man",
-    director: "Leigh Whannell",
-    type: "horror",
-    haveWatched: false,
-  },
+    title: 'The Invisible Man',
+    director: 'Leigh Whannell',
+    type: 'horror',
+    haveWatched: false
+  }
 ];
 
 // create showMovies function
 
+function showMovies(movies) {
+  const allMovies = document.querySelector('#all-movies');
+  const numberOfMovies = document.querySelector('#movies-number');
+  document.querySelectorAll('.movie-info').forEach((movie) => movie.remove());
+
+  movies.forEach((movie) => {
+    const addParagraph = document.createElement('p');
+    addParagraph.classList.add('movie-info');
+    addParagraph.innerText = `Movie title: ${movie.title} / Director: ${movie.director}`;
+    allMovies.appendChild(addParagraph);
+    numberOfMovies.innerText = movies.length;
+  });
+}
+setTimeout(() => showMovies(movies), 1000);
 
 // create a new movie object for your favorite movie
 
+const myFavMovie = {
+  title: 'Star Wars A New Hope',
+  director: 'George Lucas',
+  type: 'sci-fi',
+  haveWatched: true
+};
 
 // create addMovies function
+
+function addMovie(movie) {
+  setTimeout(() => {
+    movies.push(movie);
+    showMovies(movies);
+  }, 2000);
+}
+
+addMovie(myFavMovie);
+
+// create newMovie
+
+const saveButton = document.querySelector('.submit');
+
+saveButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  const formTitle = document.querySelector('.title');
+  const formDirector = document.querySelector('.director');
+  const formType = document.querySelector('.type');
+  const formHaveWatched = document.querySelector('.watched');
+
+  myNewMovie = {
+    title: formTitle.value,
+    director: formDirector.value,
+    type: formType.value,
+    haveWatched: formHaveWatched.checked
+  };
+  addMovie(myNewMovie);
+});

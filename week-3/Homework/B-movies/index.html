@@ -1,29 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CodeYourFuture - Callbacks</title>
+    <meta name="description" content="Callbacks" />
+    <meta name="author" content="CodeYourFuture" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        padding: 30px;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>CodeYourFuture - Callbacks</title>
-  <meta name="description" content="Callbacks">
-  <meta name="author" content="CodeYourFuture">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      padding: 30px;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="main">
-    <div class="jumbotron">
-      <h1>My movies</h1>
-      <div id="all-movies">
-        <p class="alert alert-info">Number of movies: <span id="movies-number"></span></p>
+  <body>
+    <div id="main">
+      <div class="jumbotron">
+        <h1>My movies</h1>
+        <div id="all-movies">
+          <p class="alert alert-info">Number of movies: <span id="movies-number"></span></p>
+        </div>
       </div>
+      <form id="new-movie">
+        Movie Title:<br /><input class="title" type="text" name="title" /><br />
+        Director:<br /><input class="director" type="text" name="director" /><br />
+        Movie Type:<br /><input class="type" type="text" name="type" /><br />
+        Have watched:<br /><input class="watched" type="text" name="haveWatched" /><br /><br />
+        <input type="submit" class="submit" value="Save" />
+      </form>
+      <script src="exercise.js"></script>
     </div>
-    <script src="exercise.js"></script>
-</body>
-
+  </body>
 </html>
