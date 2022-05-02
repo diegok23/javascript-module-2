@@ -61,18 +61,29 @@ var movies = [
 // create showMovies function
 
 function showMovies(movies) {
-  const allMovies = document.querySelector('#all-movies');
-  const numberOfMovies = document.querySelector('#movies-number');
-  document.querySelectorAll('.movie-info').forEach((movie) => movie.remove());
-
-  movies.forEach((movie) => {
-    const addParagraph = document.createElement('p');
-    addParagraph.classList.add('movie-info');
-    addParagraph.innerText = `Movie title: ${movie.title} / Director: ${movie.director}`;
-    allMovies.appendChild(addParagraph);
-    numberOfMovies.innerText = movies.length;
-  });
+  const allMovies = getAllMovies()
+  const numberOfMovies = getAllNumberMovies()
+  movies.forEach(movie => renderMovie(movie,allMovies,numberOfMovies));
 }
+
+function getAllMovies(){
+  const allMovies = document.querySelector('#all-movies');
+  return allMovies
+}
+
+function getAllNumberMovies(){
+  const numberOfMovies = document.querySelector('#movies-number');
+  return numberOfMovies
+}
+
+function renderMovie(movie, container, number) {
+  const addParagraph = document.createElement('p');
+  addParagraph.classList.add('movie-info');
+  addParagraph.innerText = `Movie title: ${movie.title} / Director: ${movie.director}`;
+  container.appendChild(addParagraph);
+  number.innerText = movies.length;
+}
+
 setTimeout(() => showMovies(movies), 1000);
 
 // create a new movie object for your favorite movie
@@ -87,9 +98,11 @@ const myFavMovie = {
 // create addMovies function
 
 function addMovie(movie) {
+  const allMovies = getAllMovies()
+  const numberOfMovies = getAllNumberMovies()
   setTimeout(() => {
     movies.push(movie);
-    showMovies(movies);
+    renderMovie(movie,allMovies,numberOfMovies);
   }, 2000);
 }
 
@@ -112,5 +125,10 @@ saveButton.addEventListener('click', (e) => {
     type: formType.value,
     haveWatched: formHaveWatched.checked
   };
+  
   addMovie(myNewMovie);
+  formTitle.value = '';
+  formDirector.value = '';
+  formType.value = '';
+  formHaveWatched.value = '';
 });
