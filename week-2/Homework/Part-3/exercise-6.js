@@ -96,40 +96,39 @@ var mentors = [
 
 //YOUR CODE HERE
 
-//1
+// Part 1
 const barnaReact = mentors
   .filter((mentor) => mentor.job.city.includes('Barcelona') && mentor.skills.includes('React'))
   .forEach(function (mentor) {
     console.log(`Hi, my name is ${mentor.firstName} ${mentor.lastName}. I work in Barcelona and i know React.`);
-});
+  });
 
-//2
+// Part 2
 const barna = mentors.filter((mentor) => mentor.job.city.includes('Barcelona'));
 barna.forEach((mentor) => {
   mentor.class = 'Jun1';
   mentor.skills.push('SQL');
 });
-console.log(barna);
+//console.log(barna);
 
-//3
+// Part 3
 mentors.forEach(
   (mentor) =>
     (mentor.addSkill = function (skill) {
       this.skills.push(skill);
     })
 );
+//console.log(mentors);
 
-console.log(mentors);
-
-//4
+// Part 4
 function addSkill(mentors, newSkill) {
   mentors.forEach((mentor) => mentor.addSkill(newSkill));
 }
 
 addSkill(mentors, 'Singer');
-console.log(mentors);
+//console.log(mentors);
 
-//5
+// Part 5
 
 function removeSkill(mentors, newSkill) {
   mentors.forEach((mentor) => {
@@ -141,9 +140,9 @@ function removeSkill(mentors, newSkill) {
 }
 
 removeSkill(mentors, 'SQL');
-console.log(mentors);
+//console.log(mentors);
 
-//6
+// Part 6
 
 function mentorWithMoreSkills() {
   let mentorName = '';
@@ -154,23 +153,23 @@ function mentorWithMoreSkills() {
       mentorName = mentor.firstName;
     }
   });
-  console.log(mentorSkills);
+  //console.log(mentorSkills);
   return mentorName;
 }
 console.log(`The mentor with more number of skills is ${mentorWithMoreSkills()}`);
 
-//7
+// Part 7
 
-mentors.forEach(mentor => {
+mentors.forEach((mentor) => {
   mentor.addStudentLikes = function () {
     this.studentLikes++;
   };
 });
 
-//8
+// Part 8
 
 function addStudentLikes(mentors) {
-  mentors.forEach(mentor => {
+  mentors.forEach((mentor) => {
     mentor.studentLikes++;
   });
 }
