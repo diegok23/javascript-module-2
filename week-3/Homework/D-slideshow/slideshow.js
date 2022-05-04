@@ -12,7 +12,7 @@ carousel.innerHTML =
   '<button id="butFwd"><h3>Forward</h3></button>' +
   '<button id="butAutoFwd"><h3>Auto Forward</h3></button>' +
   '</div>' +
-  '<div class="inputDiv"><p>Default slideshow time is 2.5 seconds, you can change in milliseconds</p><input class="input"></input></div>';
+  '<div class="inputDiv"><p>Default slideshow time is 2.5 seconds, you can change it here</p><input class="input"></input></div>';
 
 const butFwd = document.querySelector('#butFwd');
 const butBck = document.querySelector('#butBck');
@@ -113,6 +113,5 @@ function stepBackAuto() {
 }
 
 function timeToDelay(event) {
-  delay = event.target.value;
-  return delay;
+  delay = event.target.value * 1000;
 }
